@@ -7,13 +7,18 @@ package com;
 public class RomanNumeral
 {
 
-    public String convert(String number) {
+    public String convert(int number) {
         String result = "";
-
-        if ("1".equals(number)) {
-            result = "I";
-
+        if(number<4){
+            for (int i=0; i<number ; i++)
+                result += "I";
+        } else if(number == 4){
+            result = "IV";
+        }  else if(number == 5){
+            result = "V";
         }
+
+
         return result;
     }
 }
