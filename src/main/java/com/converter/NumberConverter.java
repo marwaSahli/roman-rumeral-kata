@@ -5,7 +5,7 @@ import com.RomanNumeralUtility;
 import java.util.Map;
 
 public class NumberConverter implements Converter {
-
+    private int numberToConvert;
     public void validateNumberConversion(int number){
 
         if(number <-1){
@@ -16,17 +16,23 @@ public class NumberConverter implements Converter {
         }
     }
 
-    public String convert(String number) {
+    public String convert(String string) {
 
         String result = "";
-        int numberToConvert = Integer.parseInt(number);
-        for (Map entry : RomanNumeralUtility.basicNumbersAndRomainLetters) {
-            while (numberToConvert >= (int) entry.keySet().toArray()[0]){
-                result +=   entry.get(entry.keySet().toArray()[0]);
-                numberToConvert -=   (int) entry.keySet().toArray()[0];
-            }
+        numberToConvert = Integer.parseInt(string);
+        for (Map basicNumberAndRomainLetter : RomanNumeralUtility.basicNumbersAndRomainLetters) {
+            result += findAndConvertBasicNumberToRoman(basicNumberAndRomainLetter);
         }
 
         return result;
     }
+    private String findAndConvertBasicNumberToRoman(Map basicNumberAndRomainLetter){
+        String result = "";
+        while (numberToConvert >= (int) basicNumberAndRomainLetter.keySet().toArray()[0]){
+            result +=   basicNumberAndRomainLetter.get(basicNumberAndRomainLetter.keySet().toArray()[0]);
+            numberToConvert -=   (int) basicNumberAndRomainLetter.keySet().toArray()[0];
+        }
+        return result;
+    }
+    
 }
