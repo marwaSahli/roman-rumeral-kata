@@ -5,9 +5,10 @@ import com.RomanNumeralUtility;
 import java.util.Map;
 
 public class NumberConverter implements Converter {
-    private int numberToConvert;
-    public void validateNumberConversion(int number){
 
+    private int numberToConvert;
+
+    public void validateNumberConversion(int number){
         if(number <-1){
             throw new NumberFormatException("Number must be positive");
         }
@@ -26,6 +27,7 @@ public class NumberConverter implements Converter {
 
         return result;
     }
+
     private String findAndConvertBasicNumberToRoman(Map basicNumberAndRomainLetter){
         String result = "";
         while (numberToConvert >= (int) basicNumberAndRomainLetter.keySet().toArray()[0]){
