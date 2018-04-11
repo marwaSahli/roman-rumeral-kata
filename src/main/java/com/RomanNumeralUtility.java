@@ -7,28 +7,7 @@ import java.util.Map;
 
 public class RomanNumeralUtility {
 
-    /*public static Map<Integer, String> basicRomanLetters = new HashMap<Integer, String>(){{
-        put(1, "I");
-        put(4,"IV");
-        put(5,"V");
-        put(9,"IX");
-        put(10,"X");
-        put(40,"XL");
-        put(50,"L");
-        put(100,"C");
-        put(400,"CD");
-        put(500,"D");
-        put(900,"CM");
-        put(1000,"M");
-    }};*/
-
-    public static int[]    basicNumbers = { 1000,  900,  500,  400,  100,   90,
-            50,   40,   10,    9,    5,    4,    1 };
-
-    public static String[] basicRomanLetters = { "M",  "CM",  "D",  "CD", "C",  "XC",
-            "L",  "XL",  "X",  "IX", "V",  "IV", "I" };
-
-    public static List<Map> basicNumberRomainLetters = new ArrayList<Map> (){{
+    public static List<Map> basicNumbersAndRomainLetters = new ArrayList<Map> (){{
         add(new HashMap(){{put(1000, "M");}});
         add(new HashMap(){{put(900, "CM");}});
         add(new HashMap(){{put(500, "D");}});
@@ -44,4 +23,12 @@ public class RomanNumeralUtility {
         add(new HashMap(){{put(1, "I");}});
 
         }};
+
+    public static boolean isNumber(String string){
+        return true;
+    }
+
+    public static boolean isRoman(String string){
+        return false;
+    }
 }

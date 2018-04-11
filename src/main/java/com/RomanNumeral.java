@@ -1,6 +1,7 @@
 package com;
 
-import java.util.HashMap;
+import com.converter.NumberConverter;
+
 import java.util.Map;
 
 /**
@@ -10,22 +11,31 @@ import java.util.Map;
 public class RomanNumeral
 {
 
-    public String convert(int number) {
-        String result = "";
-        if(number <-1){
-            throw new NumberFormatException("Number must be positive");
-        }
-        if(number >3000){
-            throw new NumberFormatException("Number should be less than 3000");
-        }
+    public NumberConverter numberConverter;
+    private RomanNumeralValidator validator ;
 
-        for (Map entry : RomanNumeralUtility.basicNumberRomainLetters) {
-            while (number >= (int) entry.keySet().toArray()[0]){
-                result +=   entry.get(entry.keySet().toArray()[0]);
-                number -=   (int) entry.keySet().toArray()[0];
-            }
-        }
-
-        return result;
+    public RomanNumeral() {
+        numberConverter = new NumberConverter();
+        validator = new RomanNumeralValidator();
     }
+
+    public String convert(String string) {
+
+        validator.validateConversion(string);
+        return buildConversion(string);
+    }
+
+
+
+
+    private String buildConversion(String string){
+        String result = "";
+        if(RomanNumeralUtility.isNumber(string)){
+            result =  numberConverter.convert(string);
+        }
+
+
+        return  result;
+    }
+
 }
