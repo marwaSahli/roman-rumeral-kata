@@ -2,9 +2,6 @@ package com;
 
 import com.converter.NumberConverter;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class RomanNumeralValidator {
 
     private  NumberConverter numberConverter;
@@ -17,7 +14,7 @@ public class RomanNumeralValidator {
     public void validateConversion(String string){
 
         if(RomanNumeralUtility.isNumber(string))
-            numberConverter.validateConversion(Integer.parseInt(string));
+            numberConverter.validateNumberConversion(Integer.parseInt(string));
 
     }
 

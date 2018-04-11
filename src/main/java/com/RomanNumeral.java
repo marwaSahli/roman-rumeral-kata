@@ -1,8 +1,8 @@
 package com;
 
 import com.converter.NumberConverter;
+import com.converter.RomanNumeralBuilder;
 
-import java.util.Map;
 
 /**
  * Hello world!
@@ -11,31 +11,18 @@ import java.util.Map;
 public class RomanNumeral
 {
 
-    public NumberConverter numberConverter;
+    public RomanNumeralBuilder romanNumeralBuilder;
     private RomanNumeralValidator validator ;
 
     public RomanNumeral() {
-        numberConverter = new NumberConverter();
         validator = new RomanNumeralValidator();
+        romanNumeralBuilder = new RomanNumeralBuilder();
     }
 
     public String convert(String string) {
 
         validator.validateConversion(string);
-        return buildConversion(string);
-    }
-
-
-
-
-    private String buildConversion(String string){
-        String result = "";
-        if(RomanNumeralUtility.isNumber(string)){
-            result =  numberConverter.convert(string);
-        }
-
-
-        return  result;
+        return romanNumeralBuilder.buildConversion(string);
     }
 
 }

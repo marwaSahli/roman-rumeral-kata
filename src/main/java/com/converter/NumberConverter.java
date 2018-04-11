@@ -6,11 +6,7 @@ import java.util.Map;
 
 public class NumberConverter implements Converter {
 
-    public boolean canConvert(String number) {
-        return true;
-    }
-
-    public void validateConversion(int number){
+    public void validateNumberConversion(int number){
 
         if(number <-1){
             throw new NumberFormatException("Number must be positive");
